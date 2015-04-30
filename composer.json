@@ -1,0 +1,11 @@
+{
+	"config":{
+		"bin-dir": "bin/"
+	}, 
+        "autoload" : {
+            "psr-4" : {"TDD\\" : "src/TDD/"}
+        },
+	"require":{
+		"phpunit/phpunit": "4.2.6"
+	}	
+}
