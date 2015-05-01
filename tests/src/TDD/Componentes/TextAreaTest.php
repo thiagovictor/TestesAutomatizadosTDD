@@ -10,7 +10,7 @@ class TextAreaTest extends \PHPUnit_Framework_TestCase {
         $this->text_area = new TextArea("area_texto","Mensagem de conteudo de um TextArea");
     }
 
-    public function testVerificaSeOComponenteEUmaClassseDoTipoComponenteInterface() {
+    public function testVerificaSeEUmaInstanciaValidaDeComponentesDeInterface() {
         $this->assertInstanceOf("TDD\Interfaces\ComponenteInterface", $this->text_area);
     }
 

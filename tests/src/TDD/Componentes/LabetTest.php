@@ -10,7 +10,7 @@ class LabetTest extends \PHPUnit_Framework_TestCase {
         $this->label = new Label("nome", "Nome :");
     }
 
-    public function testVerificaSeEInstanciaDeComponenteInterface() {
+    public function testVerificaSeEUmaInstanciaValidaDeComponentesDeInterface() {
         $this->assertInstanceOf("TDD\Interfaces\ComponenteInterface", $this->label);
     }
 

@@ -9,7 +9,7 @@ class QuebraTest extends \PHPUnit_Framework_TestCase{
         $this->quebra = new Quebra();
     }
     
-    public function testVerificaSeOComponenteEUmaClassseDoTipoComponenteInterface() {
+    public function testVerificaSeEUmaInstanciaValidaDeComponentesDeInterface() {
         $this->assertInstanceOf("TDD\Interfaces\ComponenteInterface", $this->quebra);        
     }
     

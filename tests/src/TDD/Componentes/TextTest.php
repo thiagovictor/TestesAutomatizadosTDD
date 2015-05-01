@@ -10,7 +10,7 @@ class TextTest extends \PHPUnit_Framework_TestCase {
         $this->text = new Text("Texto Livre");
     }
 
-    public function testVerificaSeOComponenteEUmaClassseDoTipoComponenteInterface() {
+    public function testVerificaSeEUmaInstanciaValidaDeComponentesDeInterface() {
         $this->assertInstanceOf("TDD\Interfaces\ComponenteInterface", $this->text);
     }
 
