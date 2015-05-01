@@ -12,6 +12,8 @@ $select = new \TDD\Componentes\Select("centro_custo");
 $select->setOption(1, "ALIMENTACAO");
 $select->setOption(2, "TRANSPORTE");
 $select->setValue(6);
+$fieldset= new \TDD\Componentes\Fieldset("Cadastro");
+$fieldset->setField(new TDD\Componentes\Input("nome_alimento"));
 ?>
 
 <html>
@@ -21,7 +23,7 @@ $select->setValue(6);
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <?php echo $select->render(); ?>
+        <?php echo $fieldset->render(); ?>
     </body>
 </html>
 
