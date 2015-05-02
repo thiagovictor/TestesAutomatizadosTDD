@@ -2,18 +2,31 @@
 chdir(dirname(__DIR__));
 require 'autoloader.php';
 
-
-$label = new TDD\Componentes\Label("nome", "Nome :");
-$input = new TDD\Componentes\Input("nome", "text", "nome_id", "Raphael Mendes");
-$input->setErro("Deve conter 15 caracteres");
-$text_area = new \TDD\Componentes\TextArea("area_texto", "Mensagem de conteudo de um TextArea");
-$text_area->setErro("Esta e uma mensagem de erro");
-$select = new \TDD\Componentes\Select("centro_custo");
-$select->setOption(1, "ALIMENTACAO");
-$select->setOption(2, "TRANSPORTE");
-$select->setValue(6);
-$fieldset= new \TDD\Componentes\Fieldset("Cadastro");
-$fieldset->setField(new TDD\Componentes\Input("nome_alimento"));
+$form = new \TDD\Formulario\Formulario(new \TDD\Factory\FieldFactory());
+$form->setParametros("name", "Cadastro")
+        ->setParametros("action", "")
+        ->setParametros("method", "POST")
+        ->setParametros("id", "form_cad_clientes");
+$form->setValidadores(new \TDD\Validadores\LimitCaracterValidador("15"), ["cliente", "endereco"])
+        ->setValidadores(new \TDD\Validadores\IsBlankValidador(), ["nome"]);
+$form->createField("TDD\Componentes\Fieldset", ["legenda" => "Cadastro Clientes"]);
+$form->createField("TDD\Componentes\Label", ["for" => "nome", "label" => "Nome :"]);
+$form->createField("TDD\Componentes\Input", ["name" => "nome", "type" => "text"]);
+$form->createField("TDD\Componentes\Quebra");
+$form->createField("TDD\Componentes\Label", ["for" => "cliente", "label" => "Cliente :"]);
+$form->createField("TDD\Componentes\Input", ["name" => "cliente", "type" => "text"]);
+$form->createField("TDD\Componentes\Quebra");
+$form->createField("TDD\Componentes\Label", ["for" => "endereco", "label" => "Endereco :"]);
+$form->createField("TDD\Componentes\Input", ["name" => "endereco", "type" => "text"]);
+$form->createField("TDD\Componentes\Quebra");
+$form->createField("TDD\Componentes\Fieldset", ["legenda" => "Dados Pessoais"]);
+$form->createField("TDD\Componentes\Label", ["for" => "cpf", "label" => "Documento :"]);
+$form->createField("TDD\Componentes\Input", ["name" => "cpf", "type" => "text"]);
+$form->createField("TDD\Componentes\Quebra");
+$form->createField("TDD\Componentes\Label", ["for" => "telefone", "label" => "Tel :"]);
+$form->createField("TDD\Componentes\Input", ["name" => "telefone", "type" => "text"]);
+$form->automaticClosedFieldset();
+$form->createField("TDD\Componentes\Input", ["name" => "enviar", "type" => "submit", "value" => "Enviar"]);
 ?>
 
 <html>
@@ -23,7 +36,18 @@ $fieldset->setField(new TDD\Componentes\Input("nome_alimento"));
         <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <?php echo $fieldset->render(); ?>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <?php
+                if (!empty($_POST)) {
+                    $form->popular($_POST);
+                    echo $form->render();
+                } else {
+                    echo $form->render();
+                }
+                ?>
+            </div>
+        </div>
     </body>
 </html>
 
