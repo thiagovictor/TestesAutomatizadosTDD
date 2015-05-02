@@ -31,13 +31,9 @@ $form->createField("TDD\Componentes\Input", ["name" => "enviar", "type" => "subm
 
 <html>
     <head>
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="panel panel-default">
-            <div class="panel-body">
+
                 <?php
                 if (!empty($_POST)) {
                     $form->popular($_POST);
@@ -46,8 +42,7 @@ $form->createField("TDD\Componentes\Input", ["name" => "enviar", "type" => "subm
                     echo $form->render();
                 }
                 ?>
-            </div>
-        </div>
+
     </body>
 </html>
 
