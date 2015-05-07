@@ -144,8 +144,15 @@ class Formulario {
     }
     
     public function popular($data) {
+        $cont = 0;
         foreach ($data as $key => $value) {
-            return $this->setValueFieldPopulateByName($key, $value);
+            $cont++;
+            if(!$this->setValueFieldPopulateByName($key, $value)){
+                return false;
+            }
+        }
+        if($cont != 0){
+            return true;
         }
         return false;
     }

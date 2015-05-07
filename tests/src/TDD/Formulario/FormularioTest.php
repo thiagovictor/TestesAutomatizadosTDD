@@ -113,5 +113,10 @@ class FormularioTest extends \PHPUnit_Framework_TestCase {
         $this->assertTrue($this->formulario->popular($data));
         $this->assertFalse($this->formulario->popular(array()));
     }
-
+    
+        public function testFailVerificaPopular() {
+        $this->formulario->createField("TDD\Componentes\Input", ["name" => "nome", "type" => "text"]);
+        $data = array("nao_existe" => "Teste de nome");
+        $this->assertFalse($this->formulario->popular($data));
+    }
 }

@@ -6,6 +6,7 @@
             "psr-4" : {"TDD\\" : "src/TDD/"}
         },
 	"require":{
-		"phpunit/phpunit": "4.2.6"
+		"phpunit/phpunit": "4.2.6",
+                "phpunit/phpunit-selenium": ">=1.2"
 	}	
 }

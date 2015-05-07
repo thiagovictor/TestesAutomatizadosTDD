@@ -31,6 +31,7 @@ $form->createField("TDD\Componentes\Input", ["name" => "enviar", "type" => "subm
 
 <html>
     <head>
+        <title>Testes Automatizados com PHPUnit / Selenium</title>
     </head>
     <body>
 
